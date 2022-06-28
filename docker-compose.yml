@@ -1,0 +1,15 @@
+version: "3.2"
+services:
+  rabbitmq:
+    image: settlemint/rabbitmq-mqtt
+    container_name: "rabbitmq-mqtt"
+    ports:
+      - 5672:5672
+      - 15672:15672
+      - 1883:1883
+      - 1884:1884
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    env_file:
+      - .rabbitmq_env
